@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz App | ShopEasy Labs</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Welcome Screen -->
+
+    <div id="start-screen">
+
+        <h1>Programming Quiz</h1>
+
+        <p>
+
+            <p>
+    Programming Quiz
+</p>
+        </p>
+
+        <p>
+
+           <p>
+    Improve your web development skills with this interactive programming quiz.
+</p>
+        </p>
+
+        <button id="start-btn">
+
+            Start Quiz
+
+        </button>
+
+    </div>
+
+    <!-- Quiz -->
+
+    <div id="quiz-box" class="hide">
+
+        <div class="top-bar">
+
+            <div>
+
+                Question
+
+                <span id="question-number">
+
+                    1
+
+                </span>
+
+                /20
+
+            </div>
+
+            <div>
+
+                Time :
+
+                <span id="timer">
+
+                    20:00
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="progress">
+
+            <div id="progress-bar"></div>
+
+        </div>
+
+        <h2 id="question">
+
+            Question
+
+        </h2>
+
+        <div id="options">
+
+        </div>
+
+        <div class="buttons">
+
+            <button id="prev-btn">
+
+                Previous
+
+            </button>
+
+            <button id="next-btn">
+
+                Next
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Result -->
+
+    <div id="result-box" class="hide">
+
+        <h1>
+
+            Quiz Completed
+
+        </h1>
+
+        <h2>
+
+            Score :
+
+            <span id="score">
+
+            </span>
+
+        </h2>
+
+        <button id="restart-btn">
+
+            Restart Quiz
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="questions.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

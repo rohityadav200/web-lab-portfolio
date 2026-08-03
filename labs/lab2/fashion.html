@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Fashion | ShopEasy</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<!--====================
+        NAVBAR
+=====================-->
+
+<nav>
+
+    <div class="logo">
+        <h2>ShopEasy</h2>
+    </div>
+
+    <ul>
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+
+        <li>
+
+            <a href="#" id="cart-btn">
+
+                🛒 <span id="cart-count">0</span>
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+<!--====================
+        PAGE HERO
+=====================-->
+
+<section class="page-hero">
+
+    <h1>Fashion Collection</h1>
+
+    <p>
+
+        Discover trendy fashion for every season.
+
+    </p>
+
+</section>
+
+<!--====================
+        PRODUCTS
+=====================-->
+
+<section class="products">
+
+    <h2>Fashion Products</h2>
+
+    <p class="section-subtitle">
+
+        Trending Fashion Collection
+
+    </p>
+
+    <div class="product-container">
+
+        <!-- Product 1 -->
+
+        <div class="product-card">
+
+            <img src="assets/images/tshirt.jpg" alt="T-Shirt">
+
+            <div class="product-info">
+
+                <h3>Premium T-Shirt</h3>
+
+                <p>100% Cotton | Comfortable Fit</p>
+
+                <div class="price-rating">
+
+                    <span class="price">₹799</span>
+
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+
+                </div>
+
+               <button class="buy-btn add-cart">
+    Buy Now
+</button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 2 -->
+
+        <div class="product-card">
+
+            <img src="assets/images/jeans.jpg" alt="Jeans">
+
+            <div class="product-info">
+
+                <h3>Blue Denim Jeans</h3>
+
+                <p>Slim Fit | Stretchable Fabric</p>
+
+                <div class="price-rating">
+
+                    <span class="price">₹1,499</span>
+
+                    <span class="rating">⭐⭐⭐⭐☆</span>
+
+                </div>
+
+                <button class="buy-btn add-cart">
+    Buy Now
+</button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 3 -->
+
+        <div class="product-card">
+
+            <img src="assets/images/jacket.jpg" alt="Jacket">
+
+            <div class="product-info">
+
+                <h3>Winter Jacket</h3>
+
+                <p>Warm, Stylish & Water Resistant</p>
+
+                <div class="price-rating">
+
+                    <span class="price">₹2,999</span>
+
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+
+                </div>
+
+               <button class="buy-btn add-cart">
+    Buy Now
+</button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 4 -->
+
+        <div class="product-card">
+
+            <img src="assets/images/hoodie.jpg" alt="Hoodie">
+
+            <div class="product-info">
+
+                <h3>Casual Hoodie</h3>
+
+                <p>Soft Fabric | Everyday Wear</p>
+
+                <div class="price-rating">
+
+                    <span class="price">₹1,299</span>
+
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+
+                </div>
+
+             <button class="buy-btn add-cart">
+    Buy Now
+</button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 5 -->
+
+        <div class="product-card">
+
+            <img src="assets/images/shirt.jpg" alt="Shirt">
+
+            <div class="product-info">
+
+                <h3>Formal Shirt</h3>
+
+                <p>Premium Cotton | Office Wear</p>
+
+                <div class="price-rating">
+
+                    <span class="price">₹999</span>
+
+                    <span class="rating">⭐⭐⭐⭐☆</span>
+
+                </div>
+
+              <button class="buy-btn add-cart">
+    Buy Now
+</button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 6 -->
+
+        <div class="product-card">
+
+            <img src="assets/images/cap.jpg" alt="Cap">
+
+            <div class="product-info">
+
+                <h3>Baseball Cap</h3>
+
+                <p>Adjustable | Stylish Design</p>
+
+                <div class="price-rating">
+
+                    <span class="price">₹499</span>
+
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+
+                </div>
+
+             <button class="buy-btn add-cart">
+    Buy Now
+</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<div class="cart-panel" id="cart-panel">
+
+    <div class="cart-header">
+
+        <h2>Shopping Cart</h2>
+
+        <button id="close-cart">✖</button>
+
+    </div>
+
+    <div id="cart-items">
+
+        <p>Your cart is empty.</p>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <h3>
+
+            Total : ₹<span id="cart-total">0</span>
+
+        </h3>
+
+        <button class="checkout-btn">
+
+            Proceed to Checkout
+
+        </button>
+
+    </div>
+
+</div>
+<footer>
+
+    <p>
+
+        © 2026 ShopEasy | Designed by Rohit Yadav
+
+    </p>
+
+</footer>
+<script src="script.js"></script>
+</body>
+
+</html>
