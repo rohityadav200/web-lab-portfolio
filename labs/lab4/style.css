@@ -1,0 +1,464 @@
+/*==========================
+        GLOBAL
+===========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+
+    color:white;
+
+    min-height:100vh;
+
+    padding:40px;
+
+}
+
+/*==========================
+        HEADER
+===========================*/
+
+header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+header h1{
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+}
+
+header p{
+
+    color:#dbeafe;
+
+    font-size:18px;
+
+}
+
+/*==========================
+        MAIN
+===========================*/
+
+.container{
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    gap:30px;
+
+}
+
+/*==========================
+      GLASS EFFECT
+===========================*/
+
+.calculator,
+.assistant,
+.history{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+/*==========================
+      DISPLAY
+===========================*/
+
+.display{
+
+    margin-bottom:25px;
+
+}
+
+#display{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:#06142d;
+
+    color:#00e5ff;
+
+    font-size:32px;
+
+    text-align:right;
+
+    font-weight:600;
+
+}
+
+/*==========================
+      BUTTON GRID
+===========================*/
+
+.buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:15px;
+
+}
+
+/* Buttons will be added later */
+
+.calc-btn{
+
+    height:65px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#1e40af;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.calc-btn:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-3px);
+
+}
+
+.operator{
+
+    background:#2563eb;
+
+}
+
+.equal{
+
+    background:#16a34a;
+
+}
+
+.equal:hover{
+
+    background:#22c55e;
+
+}
+
+.clear{
+
+    background:#dc2626;
+
+}
+
+.clear:hover{
+
+    background:#ef4444;
+
+}
+
+/*==========================
+      AI PANEL
+===========================*/
+
+.assistant h2{
+
+    margin-bottom:20px;
+
+}
+
+#chat-box{
+
+    height:420px;
+
+    overflow-y:auto;
+
+    background:#06142d;
+
+    border-radius:15px;
+
+    padding:15px;
+
+}
+
+.bot-message{
+
+    background:#2563eb;
+
+    display:inline-block;
+
+    padding:12px 16px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    max-width:85%;
+
+}
+
+.user-message{
+
+    background:#16a34a;
+
+    display:inline-block;
+
+    padding:12px 16px;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    float:right;
+
+    clear:both;
+
+    max-width:85%;
+
+}
+
+.chat-input{
+
+    margin-top:20px;
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+#user-input{
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+#send-btn{
+
+    width:120px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+}
+
+#send-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*==========================
+        HISTORY
+===========================*/
+
+.history{
+
+    margin-top:30px;
+
+}
+
+.history h2{
+
+    margin-bottom:20px;
+
+}
+
+#history-list{
+
+    background:#06142d;
+
+    border-radius:12px;
+
+    min-height:120px;
+
+    padding:20px;
+
+    color:#dbeafe;
+
+}
+
+/*==========================
+        SCROLLBAR
+===========================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+}
+
+/*==========================
+      RESPONSIVE
+===========================*/
+
+@media(max-width:1000px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+body{
+
+padding:20px;
+
+}
+
+header h1{
+
+font-size:30px;
+
+}
+
+.buttons{
+
+grid-template-columns:repeat(4,1fr);
+
+}
+
+.calc-btn{
+
+height:55px;
+
+font-size:18px;
+
+}
+
+}
+
+.zero{
+
+    grid-column:span 5;
+
+    background:#2563eb;
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+.zero:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*==========================
+      HISTORY HEADER
+===========================*/
+
+.history-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+#clear-history{
+
+    border:none;
+
+    background:#dc2626;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+#clear-history:hover{
+
+    background:#ef4444;
+
+}
+
+.history-item{
+
+    padding:10px;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    color:#dbeafe;
+
+}

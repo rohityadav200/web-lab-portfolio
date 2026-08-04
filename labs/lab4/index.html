@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Scientific Calculator</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<!--==========================
+        HEADER
+===========================-->
+
+<header>
+
+    <h1>🤖 AI Scientific Calculator</h1>
+
+    <p>
+
+        Scientific Calculator with Smart AI Assistant
+
+    </p>
+
+</header>
+
+<!--==========================
+        MAIN CONTAINER
+===========================-->
+
+<div class="container">
+
+    <!--======================
+        CALCULATOR
+    =======================-->
+
+    <section class="calculator">
+
+        <div class="display">
+
+            <input
+                type="text"
+                id="display"
+                placeholder="0"
+                readonly>
+
+        </div>
+
+        <!-- Buttons will come here -->
+
+        <div class="buttons">
+
+    <!-- Row 1 -->
+
+    <button class="calc-btn clear">AC</button>
+
+    <button class="calc-btn">⌫</button>
+
+    <button class="calc-btn">(</button>
+
+    <button class="calc-btn">)</button>
+
+    <button class="calc-btn operator">÷</button>
+
+
+    <!-- Row 2 -->
+
+    <button class="calc-btn">sin</button>
+
+    <button class="calc-btn">cos</button>
+
+    <button class="calc-btn">tan</button>
+
+    <button class="calc-btn">log</button>
+
+    <button class="calc-btn operator">×</button>
+
+
+    <!-- Row 3 -->
+
+    <button class="calc-btn">ln</button>
+
+    <button class="calc-btn">√</button>
+
+    <button class="calc-btn">x²</button>
+
+    <button class="calc-btn">xʸ</button>
+
+    <button class="calc-btn operator">-</button>
+
+
+    <!-- Row 4 -->
+
+    <button class="calc-btn">π</button>
+
+    <button class="calc-btn">e</button>
+
+    <button class="calc-btn">!</button>
+
+    <button class="calc-btn">%</button>
+
+    <button class="calc-btn operator">+</button>
+
+
+    <!-- Row 5 -->
+
+    <button class="calc-btn">7</button>
+
+    <button class="calc-btn">8</button>
+
+    <button class="calc-btn">9</button>
+
+    <button class="calc-btn">1/x</button>
+
+    <button class="calc-btn equal">=</button>
+
+
+    <!-- Row 6 -->
+
+    <button class="calc-btn">4</button>
+
+    <button class="calc-btn">5</button>
+
+    <button class="calc-btn">6</button>
+
+    <button class="calc-btn">|x|</button>
+
+    <button class="calc-btn">±</button>
+
+
+    <!-- Row 7 -->
+
+    <button class="calc-btn">1</button>
+
+    <button class="calc-btn">2</button>
+
+    <button class="calc-btn">3</button>
+
+    <button class="calc-btn">.</button>
+
+    <button class="calc-btn">Ans</button>
+
+
+    <!-- Row 8 -->
+
+    <button class="calc-btn zero">0</button>
+
+</div>
+
+    </section>
+
+    <!--======================
+          AI ASSISTANT
+    =======================-->
+
+    <section class="assistant">
+
+        <h2>
+
+            🤖 AI Assistant
+
+        </h2>
+
+        <div id="chat-box">
+
+            <div class="bot-message">
+
+                Hello 👋
+
+                Ask me anything about mathematics.
+
+            </div>
+
+        </div>
+
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Ask a math question...">
+
+            <button id="send-btn">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!--==========================
+        HISTORY
+===========================-->
+
+<section class="history">
+
+    <div class="history-header">
+
+        <h2>📝 Calculation History</h2>
+
+        <button id="clear-history">
+
+            Clear
+
+        </button>
+
+    </div>
+
+    <div id="history-list">
+
+        No calculations yet.
+
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
