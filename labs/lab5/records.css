@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.records-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 40px;
+}
+
+.records-card {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.records-card h1 {
+    margin: 0;
+    text-align: center;
+    color: #1e40af;
+    font-size: 42px;
+}
+
+.records-card .subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 20px;
+    margin: 10px 0 35px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.employee-table {
+    width: 100%;
+    min-width: 1200px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.employee-table th {
+    background: #2563eb;
+    color: white;
+    padding: 16px 14px;
+    text-align: left;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.employee-table td {
+    padding: 15px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.employee-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.employee-table tbody tr:hover {
+    background: #eff6ff;
+}
+
+.no-records {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+    font-size: 18px;
+}
+
+.record-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-btn {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #1d4ed8;
+}
