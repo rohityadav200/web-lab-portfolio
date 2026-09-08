@@ -10,3 +10,4 @@ CREATE TABLE IF NOT EXISTS users (
     course VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+select * from department_db;

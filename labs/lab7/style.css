@@ -1272,3 +1272,429 @@ footer {
 
     font-weight: bold;
 }
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f7fb;
+    padding: 30px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+.login-logo {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+
+    background: #174ea6;
+    color: white;
+
+    border-radius: 15px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.login-card h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 32px;
+    color: #111827;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin: 10px 0 30px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    font-size: 15px;
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+.login-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.login-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+.login-footer {
+    text-align: center;
+    margin-top: 25px;
+
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.login-footer a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+
+.login-error {
+    background: #fee2e2;
+    color: #b91c1c;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+/* =========================================
+   ADMIN USER MANAGEMENT PAGE
+========================================= */
+
+.admin-users-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    padding: 50px 7%;
+    box-sizing: border-box;
+}
+
+.admin-users-header {
+    max-width: 1200px;
+    margin: 0 auto 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.admin-users-header h1 {
+    margin: 8px 0;
+    font-size: 42px;
+    color: #111827;
+}
+
+.admin-users-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.section-label {
+    color: #16a085;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 20px;
+
+    background: #102a43;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    background: #174a68;
+}
+
+
+/* Main card */
+
+.users-card {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* Card heading */
+
+.table-header {
+    padding: 25px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table-header h2 {
+    margin: 0;
+
+    font-size: 24px;
+    color: #111827;
+}
+
+.table-header span {
+    background: #eef6ff;
+    color: #2563eb;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Table */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.users-card table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+.users-card th {
+    padding: 16px 20px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+.users-card td {
+    padding: 18px 20px;
+
+    border-top: 1px solid #edf0f4;
+
+    color: #374151;
+
+    font-size: 15px;
+}
+
+.users-card tbody tr {
+    transition: 0.2s;
+}
+
+.users-card tbody tr:hover {
+    background: #f8fbff;
+}
+
+
+/* Status */
+
+.user-status {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.user-status.pending {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.user-status.approved {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.user-status.rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* Action buttons */
+
+.approve-button,
+.reject-button {
+    display: inline-block;
+
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-right: 5px;
+
+    transition: 0.2s;
+}
+
+.approve-button {
+    background: #16a34a;
+    color: white;
+}
+
+.approve-button:hover {
+    background: #15803d;
+}
+
+.reject-button {
+    background: #dc2626;
+    color: white;
+}
+
+.reject-button:hover {
+    background: #b91c1c;
+}
+
+
+/* No users */
+
+.no-users {
+    text-align: center;
+
+    padding: 45px !important;
+
+    color: #6b7280 !important;
+}
+
+
+/* Footer */
+
+.admin-users-footer {
+    max-width: 1200px;
+
+    margin: 25px auto 0;
+}
+
+.admin-users-footer a {
+    color: #dc2626;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .admin-users-page {
+        padding: 30px 15px;
+    }
+
+    .admin-users-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-users-header h1 {
+        font-size: 32px;
+    }
+
+    .users-card {
+        border-radius: 12px;
+    }
+
+}

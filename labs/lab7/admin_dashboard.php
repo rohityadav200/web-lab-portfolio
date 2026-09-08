@@ -1,15 +1,14 @@
 <?php
 
-session_start();
+include "auth.php";
 
-if (!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit();
-}
 
+// Only admin can access this page
 if ($_SESSION["user_role"] !== "admin") {
-    header("Location: login.php");
+
+    header("Location: employee_dashboard.php");
     exit();
+
 }
 
 ?>
@@ -32,15 +31,23 @@ if ($_SESSION["user_role"] !== "admin") {
 
 <body>
 
+
+<!-- ================= NAVIGATION ================= -->
+
 <header class="navbar">
 
     <div class="brand">
 
-        <span class="brand-icon">TN</span>
+        <span class="brand-icon">
+            TN
+        </span>
 
-        <span>TechNova</span>
+        <span>
+            TechNova
+        </span>
 
     </div>
+
 
     <nav>
 
@@ -62,7 +69,13 @@ if ($_SESSION["user_role"] !== "admin") {
 </header>
 
 
+
+<!-- ================= ADMIN DASHBOARD ================= -->
+
 <main class="dashboard">
+
+
+    <!-- Dashboard Header -->
 
     <div class="dashboard-header">
 
@@ -73,19 +86,25 @@ if ($_SESSION["user_role"] !== "admin") {
             </span>
 
             <h1>
+
                 Welcome,
                 <?php
+
                 echo htmlspecialchars(
                     $_SESSION["user_name"]
                 );
+
                 ?>
+
             </h1>
 
             <p>
-                Manage and view company employee information.
+                Manage and view TechNova
+                employee information.
             </p>
 
         </div>
+
 
         <a href="logout.php"
            class="dashboard-logout">
@@ -97,10 +116,13 @@ if ($_SESSION["user_role"] !== "admin") {
     </div>
 
 
+
+    <!-- ================= DASHBOARD CARDS ================= -->
+
     <div class="dashboard-grid">
 
 
-        <!-- Admin Profile -->
+        <!-- ================= CARD 01 ================= -->
 
         <div class="dashboard-card">
 
@@ -108,40 +130,62 @@ if ($_SESSION["user_role"] !== "admin") {
                 01
             </span>
 
+
             <h2>
                 Admin Profile
             </h2>
 
+
             <p>
-                Your administrator account information.
+                Your administrator account
+                information.
             </p>
+
 
             <div class="profile-details">
 
                 <p>
-                    <strong>Name:</strong>
+
+                    <strong>
+                        Name:
+                    </strong>
 
                     <?php
+
                     echo htmlspecialchars(
                         $_SESSION["user_name"]
                     );
+
                     ?>
+
                 </p>
 
+
                 <p>
-                    <strong>Email:</strong>
+
+                    <strong>
+                        Email:
+                    </strong>
 
                     <?php
+
                     echo htmlspecialchars(
                         $_SESSION["user_email"]
                     );
+
                     ?>
+
                 </p>
 
+
                 <p>
-                    <strong>Role:</strong>
+
+                    <strong>
+                        Role:
+                    </strong>
 
                     Administrator
+
                 </p>
 
             </div>
@@ -149,7 +193,8 @@ if ($_SESSION["user_role"] !== "admin") {
         </div>
 
 
-        <!-- Employee Information -->
+
+        <!-- ================= CARD 02 ================= -->
 
         <div class="dashboard-card admin-card">
 
@@ -157,14 +202,17 @@ if ($_SESSION["user_role"] !== "admin") {
                 02
             </span>
 
+
             <h2>
                 Employee Details
             </h2>
+
 
             <p>
                 View the registered employees
                 of TechNova Solutions.
             </p>
+
 
             <a href="employee_details.php"
                class="dashboard-button">
@@ -176,10 +224,45 @@ if ($_SESSION["user_role"] !== "admin") {
         </div>
 
 
+
+        <!-- ================= CARD 03 ================= -->
+
+        <div class="dashboard-card approval-card">
+
+            <span class="card-number">
+                03
+            </span>
+
+
+            <h2>
+                User Approvals
+            </h2>
+
+
+            <p>
+                Review employee registrations
+                and approve or reject accounts.
+            </p>
+
+
+            <a href="admin_users.php"
+               class="dashboard-button">
+
+                Manage User Approvals →
+
+            </a>
+
+        </div>
+
+
     </div>
+
 
 </main>
 
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -195,11 +278,13 @@ if ($_SESSION["user_role"] !== "admin") {
 
     </div>
 
+
     <p>
         © 2026 TechNova Solutions
     </p>
 
 </footer>
+
 
 </body>
 

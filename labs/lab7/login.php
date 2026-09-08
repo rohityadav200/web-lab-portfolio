@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+// Show messages coming from login_process.php
+$error = "";
+
+if (isset($_GET["error"])) {
+
+    if ($_GET["error"] === "pending") {
+        $error = "Your account is waiting for admin approval.";
+    }
+
+    if ($_GET["error"] === "rejected") {
+        $error = "Your account has been rejected by the administrator.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,199 +34,96 @@ session_start();
 
 <body>
 
-<header class="navbar">
+    <div class="login-page">
 
-    <div class="brand">
+        <div class="login-card">
 
-        <span class="brand-icon">
-            TN
-        </span>
+            <div class="login-logo">
+                TN
+            </div>
 
-        <span>
-            TechNova
-        </span>
+            <h1>Welcome Back</h1>
 
-    </div>
-
-
-    <nav>
-
-        <a href="index.php">
-            Home
-        </a>
-
-        <a href="index.php#about">
-            About
-        </a>
-
-        <a href="index.php#services">
-            Services
-        </a>
-
-        <a href="register.php">
-            Registration
-        </a>
-
-    </nav>
-
-
-    <a href="login.php"
-       class="nav-button">
-
-        Login
-
-    </a>
-
-</header>
-
-
-<main class="auth-page">
-
-    <div class="auth-container">
-
-
-        <!-- Login Information -->
-
-        <div class="auth-info">
-
-            <span class="section-label">
-                COMPANY PORTAL
-            </span>
-
-            <h1>
-                Welcome
-                <span>Back.</span>
-            </h1>
-
-            <p>
-
+            <p class="login-subtitle">
                 Login to your TechNova account
-                to access your company dashboard.
-
             </p>
 
 
-            <div class="auth-feature">
+            <?php if (!empty($error)): ?>
 
-                <strong>01</strong>
+                <div class="login-error">
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
 
-                <span>
-                    Secure authentication
-                </span>
-
-            </div>
+            <?php endif; ?>
 
 
-            <div class="auth-feature">
-
-                <strong>02</strong>
-
-                <span>
-                    Role-based access
-                </span>
-
-            </div>
+            <form action="login_process.php"
+                  method="POST">
 
 
-            <div class="auth-feature">
+                <div class="form-group">
 
-                <strong>03</strong>
+                    <label for="email">
+                        Email Address
+                    </label>
 
-                <span>
-                    Protected company data
-                </span>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
 
-            </div>
-
-        </div>
-
-
-        <!-- Login Form -->
-
-        <div class="form-card">
-
-            <h2>
-                Sign In
-            </h2>
-
-            <p>
-                Enter your account credentials.
-            </p>
+                </div>
 
 
-            <form
-                action="login_process.php"
-                method="POST">
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
 
 
-                <label>
-                    Email Address
-                </label>
+                <button type="submit"
+                        class="login-button">
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required>
-
-
-                <label>
-                    Password
-                </label>
-
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    required>
-
-
-                <button type="submit">
-
-                    Login →
+                    Login
 
                 </button>
 
             </form>
 
 
-            <p class="form-footer">
+            <div class="login-footer">
 
-                Don't have an account?
+                <p>
+                    Don't have an account?
+                    <a href="register.php">
+                        Register
+                    </a>
+                </p>
 
-                <a href="register.php">
-                    Register here
+                <a href="index.php">
+                    ← Back to Website
                 </a>
 
-            </p>
+            </div>
 
         </div>
 
     </div>
-
-</main>
-
-
-<footer>
-
-    <div class="footer-brand">
-
-        <strong>
-            TechNova
-        </strong>
-
-        <p>
-            Technology • Innovation • Growth
-        </p>
-
-    </div>
-
-
-    <p>
-        © 2026 TechNova Solutions
-    </p>
-
-</footer>
 
 </body>
 

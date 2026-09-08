@@ -1,4 +1,7 @@
 <?php
+include "auth.php";
+?>
+<?php
 
 session_start();
 

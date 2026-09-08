@@ -2,152 +2,101 @@
 
 include "db.php";
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-
-    header("Location: register.php");
-
-    exit();
-
-}
-
-
-$name = trim($_POST["name"]);
-$email = trim($_POST["email"]);
-$password = $_POST["password"];
-$confirm_password = $_POST["confirm_password"];
-$role = $_POST["role"];
+    // Get form data
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+    $password = $_POST["password"];
+    $role = $_POST["role"];
 
 
-/* Check password */
+    // Basic validation
+    if (empty($name) || empty($email) || empty($password) || empty($role)) {
 
-if ($password !== $confirm_password) {
+        echo "<script>
+                alert('Please fill all required fields.');
+                window.location='register.php';
+              </script>";
 
-    die("Error: Passwords do not match.");
-
-}
-
-
-if (strlen($password) < 6) {
-
-    die("Error: Password must contain at least 6 characters.");
-
-}
+        exit();
+    }
 
 
-/* Check role */
+    // Check whether email already exists
+    $check = $conn->prepare(
+        "SELECT id FROM users WHERE email = ?"
+    );
 
-if ($role !== "employee" && $role !== "admin") {
+    $check->bind_param("s", $email);
 
-    die("Error: Invalid account type.");
+    $check->execute();
 
-}
-
-
-/* Check existing email */
-
-$check = $conn->prepare(
-    "SELECT id FROM users WHERE email = ?"
-);
-
-$check->bind_param("s", $email);
-
-$check->execute();
-
-$result = $check->get_result();
+    $result = $check->get_result();
 
 
-if ($result->num_rows > 0) {
+    if ($result->num_rows > 0) {
 
-    die("Error: This email is already registered.");
+        echo "<script>
+                alert('Email already registered.');
+                window.location='register.php';
+              </script>";
 
-}
+        $check->close();
+        $conn->close();
 
+        exit();
+    }
 
-/* Hash password */
-
-$hashed_password = password_hash(
-    $password,
-    PASSWORD_DEFAULT
-);
-
-
-/* Insert user */
-
-$sql = $conn->prepare(
-    "INSERT INTO users
-    (name, email, password, role)
-    VALUES (?, ?, ?, ?)"
-);
-
-$sql->bind_param(
-    "ssss",
-    $name,
-    $email,
-    $hashed_password,
-    $role
-);
+    $check->close();
 
 
-if ($sql->execute()) {
+    // Hash password
+    $hashed_password = password_hash(
+        $password,
+        PASSWORD_DEFAULT
+    );
 
-    echo "
-    <!DOCTYPE html>
 
-    <html>
+    /*
+        New users are automatically set to PENDING.
 
-    <head>
+        Admin will approve the account later.
+    */
 
-        <title>Registration Successful</title>
+    $stmt = $conn->prepare(
+        "INSERT INTO users
+        (name, email, password, role, status)
+        VALUES (?, ?, ?, ?, 'pending')"
+    );
 
-        <link rel='stylesheet'
-              href='style.css'>
 
-    </head>
+    $stmt->bind_param(
+        "ssss",
+        $name,
+        $email,
+        $hashed_password,
+        $role
+    );
 
-    <body>
 
-        <main class='auth-page'>
+    if ($stmt->execute()) {
 
-            <div class='form-card'
-                 style='max-width:500px; text-align:center;'>
+        echo "<script>
+                alert('Registration successful! Your account is waiting for admin approval.');
+                window.location='login.php';
+              </script>";
 
-                <h2>
-                    Registration Successful!
-                </h2>
+    } else {
 
-                <p>
-                    Your TechNova account has been
-                    created successfully.
-                </p>
+        echo "Registration failed: " . $stmt->error;
 
-                <a href='login.php'
-                   class='primary-button'>
+    }
 
-                    Continue to Login →
 
-                </a>
-
-            </div>
-
-        </main>
-
-    </body>
-
-    </html>
-    ";
-
-} else {
-
-    echo "Error: " . $conn->error;
+    $stmt->close();
+    $conn->close();
 
 }
-
-
-$check->close();
-
-$sql->close();
-
-$conn->close();
 
 ?>
