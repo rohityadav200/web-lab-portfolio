@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Information </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <!-- <span>LAB 9</span> -->
+
+            <h1>Weather Information</h1>
+
+            <p>
+                Fetch weather data using AJAX and JSON
+            </p>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Enter city name"
+            >
+
+            <button onclick="getWeather()">
+                Get Weather
+            </button>
+
+        </div>
+
+
+        <div id="loading" class="loading">
+            Loading weather data...
+        </div>
+
+
+        <div id="error" class="error"></div>
+
+
+        <div id="weatherCard" class="weather-card">
+
+            <h2 id="cityName"></h2>
+
+            <div class="temperature">
+
+                <span id="temperature"></span>°C
+
+            </div>
+
+            <p id="weatherDescription"></p>
+
+
+            <div class="weather-details">
+
+                <div>
+                    <strong>Wind</strong>
+                    <span id="wind"></span>
+                </div>
+
+                <div>
+                    <strong>Humidity</strong>
+                    <span id="humidity"></span>
+                </div>
+
+                <div>
+                    <strong>Latitude</strong>
+                    <span id="latitude"></span>
+                </div>
+
+                <div>
+                    <strong>Longitude</strong>
+                    <span id="longitude"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <footer>
+
+            Internet & Web Technologies Lab
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
