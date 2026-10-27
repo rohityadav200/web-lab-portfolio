@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Discover books, explore authors, save favourites and browse book details using jQuery AJAX and JSON.">
+
+    <title>Book Explorer Pro </title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Application JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            Book<span>Explorer</span>
+            <small>PRO</small>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#discover">Discover</a>
+            <a href="#library">My Library</a>
+            <!-- <span class="lab-label">IWT · LAB 10</span> -->
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="discover">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">YOUR DIGITAL BOOK COLLECTION</span>
+
+                <h1>
+                    Find your next
+                    <span>great read.</span>
+                </h1>
+
+                <p>
+                    Search millions of book records, discover authors,
+                    save your favourites and explore book details.
+                </p>
+
+                <!-- SEARCH FORM -->
+                <form id="searchForm" class="search-form">
+
+                    <label class="sr-only" for="searchInput">
+                        Search by book title or author
+                    </label>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        name="query"
+                        placeholder="Search books or authors..."
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" id="searchBtn" class="primary-btn">
+                        Search Books
+                    </button>
+
+                </form>
+
+                <div class="quick-searches">
+                    <span>Try:</span>
+                    <button type="button" class="quick-search" data-query="Harry Potter">
+                        Harry Potter
+                    </button>
+                    <button type="button" class="quick-search" data-query="J. K. Rowling">
+                        J. K. Rowling
+                    </button>
+                    <button type="button" class="quick-search" data-query="Science fiction">
+                        Science fiction
+                    </button>
+                </div>
+
+                <p id="statusMessage" class="status-message"
+                   role="status" aria-live="polite">
+                    Search for a title or author to discover books.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- LIBRARY -->
+        <section class="library-section" id="library">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">EXPLORE THE COLLECTION</span>
+                    <h2 id="resultsHeading">Discover Books</h2>
+                    <p id="resultsSubtitle">
+                        Your next favourite book might be here.
+                    </p>
+                </div>
+
+                <div class="library-stats">
+                    <div class="stat-box">
+                        <strong id="resultCount">0</strong>
+                        <span>Results loaded</span>
+                    </div>
+
+                    <div class="stat-box">
+                        <strong id="favouriteCount">0</strong>
+                        <span>Favourites</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+            <div class="toolbar">
+
+                <div class="filter-group">
+
+                    <label for="viewFilter">Show</label>
+
+                    <select id="viewFilter">
+                        <option value="all">All books</option>
+                        <option value="favourites">My favourites</option>
+                    </select>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <label for="sortBy">Sort by</label>
+
+                    <select id="sortBy">
+                        <option value="relevance">Relevance</option>
+                        <option value="title-asc">Title: A–Z</option>
+                        <option value="title-desc">Title: Z–A</option>
+                        <option value="year-desc">Newest first</option>
+                        <option value="year-asc">Oldest first</option>
+                    </select>
+
+                </div>
+
+                <button type="button" id="refreshBtn" class="secondary-btn">
+                    ↻ Reload results
+                </button>
+
+            </div>
+
+
+            <!-- BOOK GRID -->
+            <div id="booksContainer" class="books-grid">
+
+                <div class="empty-state">
+                    <div class="empty-icon">📚</div>
+                    <h3>Your library awaits</h3>
+                    <p>Search for a book or author to get started.</p>
+                </div>
+
+            </div>
+
+
+            <!-- LOAD MORE -->
+            <div class="load-more-wrapper">
+
+                <p id="paginationMessage" class="pagination-message"></p>
+
+                <button type="button" id="loadMoreBtn"
+                        class="primary-btn" hidden>
+                    Load More Books
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- TECHNOLOGY INFORMATION -->
+        <section class="tech-note">
+
+            <div class="tech-icon">⚡</div>
+
+            <div>
+                <h3>Powered by jQuery, AJAX & JSON</h3>
+
+                <p>
+                    This application sends asynchronous GET requests
+                    to the Open Library Search API, processes JSON
+                    responses and dynamically renders book information
+                    without reloading the page.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOOK DETAILS MODAL -->
+    <div id="bookModal" class="modal"
+         role="dialog" aria-modal="true"
+         aria-labelledby="modalTitle" hidden>
+
+        <div class="modal-backdrop" data-close-modal></div>
+
+        <div class="modal-content">
+
+            <button type="button" id="closeModalBtn"
+                    class="modal-close" aria-label="Close book details">
+                &times;
+            </button>
+
+            <div id="modalBody" class="modal-body">
+                <!-- Book details inserted by script.js -->
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <a href="#" class="logo">
+                Book<span>Explorer</span>
+            </a>
+
+            <p>
+                Internet & Web Technologies · Lab 10
+            </p>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2026 Book Explorer Pro |
+                Developed for academic learning
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
