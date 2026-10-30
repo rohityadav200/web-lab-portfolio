@@ -1,6 +1,4 @@
-CREATE DATABASE company_db;
 
-USE company_db;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

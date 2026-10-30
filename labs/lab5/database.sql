@@ -1,6 +1,4 @@
-CREATE DATABASE IF NOT EXISTS employee_db;
 
-USE employee_db;
 
 CREATE TABLE IF NOT EXISTS employees (
     employee_id VARCHAR(20) PRIMARY KEY,
